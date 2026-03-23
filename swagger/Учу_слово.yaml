@@ -1,0 +1,453 @@
+openapi: 3.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/MILAMIHEEVA/LearningWord/1.0.0
+
+info:
+  version: "1.0.0"
+  title: LearningTheWord
+  description: API приложения для изучения иностранных слов учеников языковой школы
+
+tags:
+  - name: Языки
+  - name: Словари
+  - name: Архив
+
+paths:
+  /Language:
+    get:
+      summary: Текущий язык
+      description: Запрос на получение выбранного в настоящий момент языка
+      tags:
+        - Языки
+      responses:
+        '200':
+          description: Успешный ответ с выбранным языком
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    $ref: '#/components/schemas/Language'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: array
+                    items: {}
+                    example: []
+
+  /Language/{code}:
+    put:
+      summary: Изменение текущего языка
+      description: Изменение языка
+      tags:
+        - Языки
+      parameters:
+        - name: code
+          in: path
+          required: true
+          description: Код языка
+          schema:
+            type: string
+            example: en
+      responses:
+        '200':
+          description: Успешный ответ на изменение языка. Возвращаем установленный язык
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    $ref: '#/components/schemas/Language'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    $ref: '#/components/schemas/Language'
+
+  /Languages:
+    get:
+      summary: Список языков
+      description: Запрос на получение всех языков в системе
+      tags:
+        - Языки
+      responses:
+        '200':
+          description: Успешный ответ со списком доступных языков
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Language'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: array
+                    items: {}
+                    example: []
+
+  /ActiveDictionary:
+    get:
+      summary: Список изучаемых слов
+      description: Запрос на получение списка изучаемых слов. По умолчанию возвращает одно.
+      tags:
+        - Словари
+      parameters:
+        - name: language
+          description: Код языка. Слова только по этому языку будут возвращены
+          in: query
+          schema:
+            type: string
+            example: "en"
+        - name: limit
+          description: Количество слов
+          in: query
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Успешный ответ.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Word'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: array
+                    items: {}
+                    example: []
+
+  /ActiveDictionary/word:
+    get:
+      summary: Перевод слова
+      description: Возвращает перевод указанного слова
+      tags:
+        - Словари
+      parameters:
+        - name: language
+          description: Код языка. Слова только по этому языку будут возвращены
+          in: query
+          schema:
+            type: string
+            example: "en"
+        - name: word
+          description: Слово для перевода
+          in: query
+          schema:
+            type: string
+            example: "Hello"
+      responses:
+        '200':
+          description: Успешный ответ.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    $ref: '#/components/schemas/Word'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: object
+    post:
+      summary: Добавление слова для изучения
+      description: Запрос на добавление слова в список к изучению
+      tags:
+        - Словари
+      parameters:
+        - name: language
+          description: Код языка
+          in: query
+          schema:
+            type: string
+            example: "en"
+        - name: NameWord
+          description: Само слово. Символьное написание
+          in: query
+          schema:
+            type: string
+            example: "Hello"
+      responses:
+        '200':
+          description: Успешный ответ.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Word'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: array
+                    items: {}
+                    example: []
+    patch:
+      summary: Перенос выученного слова в архив
+      description: Изменение статуса слова и перенос слова в архив
+      tags:
+        - Словари
+      parameters:
+        - name: language
+          description: Код языка
+          in: query
+          schema:
+            type: string
+            example: "en"
+        - name: NameWord
+          description: Само слово. Символьное написание
+          in: query
+          schema:
+            type: string
+            example: "Hello"
+        - name: StatusWord
+          description: Статус изучаемого слова - актив или архив
+          in: query
+          schema:
+            type: string
+            example: "active"
+      responses:
+        '200':
+          description: Успешный ответ.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items: {}
+                    example: []
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Word'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: array
+                    items: {}
+                    example: []
+
+  /Archive:
+    delete:
+      summary: Очистить архив
+      description: Запрос на удаление слов из архива
+      tags:
+        - Архив
+      parameters:
+        - name: code
+          in: query
+          required: true
+          description: Код языка, слова данного языка будут удалены
+          schema:
+            type: string
+            example: en
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Archive'
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Error'
+                  result:
+                    type: array
+                    items: {}
+                    example: []
+
+components:
+  schemas:
+    Language:
+      type: object
+      required:
+        - code
+        - name
+      properties:
+        code:
+          type: string
+          description: Код изучаемого языка (по ISO 639-1)
+          example: en
+        name:
+          type: string
+          description: Название изучаемого языка
+          example: English
+
+    Word:
+      type: object
+      required:
+        - Code
+        - NameWord
+      properties:
+        Code:
+          description: Код языка
+          type: string
+          example: "en"
+        NameWord:
+          description: Написание слова
+          type: string
+          example: "Hello"
+        NameWordTranslation:
+          description: Значение слова на другом языке / Перевод
+          type: string
+          example: "Привет"
+        Transcription:
+          description: Графическое обозначение произношения слова
+          type: string
+        SoundId:
+          description: Аудиофайл с произношением слова
+          type: string
+          example: "/media/20784123874174343.mov"
+        StatusWord:
+          description: Статус изучаемого слова - актив или архив
+          type: string
+          enum:
+            - active
+            - archive
+
+    Archive:
+      type: object
+      required:
+        - code
+        - name
+      properties:
+        code:
+          type: string
+          description: Код изучаемого языка (по ISO 639-1)
+          example: en
+        name:
+          type: string
+          description: Название изучаемого языка
+          example: English
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          description: Код ошибки
+          example: 401
+        message:
+          type: string
+          description: Текст ошибки
+          example: Вы не авторизованы
