@@ -17,10 +17,12 @@
 ## Диаграммы
 
 ### Диаграмма классов
-![Class Diagram](uml/class-diagram.png)
+[![Class Diagram](uml/class-diagram.png)](uml/class-diagram.png)  
+Редактируемый исходник: [class-diagram.drawio](uml/class-diagram.drawio)
 
 ### Диаграмма вариантов использования
-![Use Case Diagram](uml/use-case-diagram.png)
+[![Use Case Diagram](uml/use-case-diagram.png)](uml/use-case-diagram.png)  
+Редактируемый исходник: [use-case-diagram.drawio](uml/use-case-diagram.drawio)
 
 ## API (Swagger)
 
@@ -47,24 +49,21 @@ API системы описан с использованием стандарт
 
 ## Документы
 
-[Спецификация системы](specification.docx)
+- [specification.md](specification.md) — просмотр на GitHub   
+- [specification.docx](specification.docx) — скачать исходный документ
 
 ## Структура проекта
 
+- README.md
+- specification.md / specification.docx
+- UML/
+  - class-diagram.png
+  - class-diagram.drawio
+  - use-case-diagram.png
+  - use-case-diagram.drawio
+- Swagger/
+  - api-spec.yaml
 
-vocabulary-learning-system/
-│
-├── README.md
-├── specification.docx
-│
-├── uml/
-│ ├── class-diagram.png
-│ ├── class-diagram.drawio
-│ ├── use-case-diagram.png
-│ └── use-case-diagram.drawio
-│
-├── swagger/
-│ └── api-spec.yaml
 ## Примечание
 
 Swagger API представляет упрощённую модель взаимодействия с системой и может не полностью отражать внутреннюю структуру классов, представленную на UML-диаграмме.
