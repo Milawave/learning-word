@@ -17,12 +17,12 @@
 ## Диаграммы
 
 ### Диаграмма классов
-[![Class Diagram](uml/class-diagram.png)](uml/class-diagram.png)  
-Редактируемый исходник: [class-diagram.drawio](uml/class-diagram.drawio)
+[![Class Diagram](UML/class-diagram.png)](UML/class-diagram.png) 
+Редактируемый исходник: [class-diagram.drawio](UML/class-diagram.drawio)
 
 ### Диаграмма вариантов использования
-[![Use Case Diagram](uml/use-case-diagram.png)](uml/use-case-diagram.png)  
-Редактируемый исходник: [use-case-diagram.drawio](uml/use-case-diagram.drawio)
+[![Use Case Diagram](UML/use-case-diagram.png)](UML/use-case-diagram.png)  
+Редактируемый исходник: [use-case-diagram.drawio](UML/use-case-diagram.drawio)
 
 ## API (Swagger)
 
