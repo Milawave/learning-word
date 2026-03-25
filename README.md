@@ -21,15 +21,16 @@
 Редактируемый исходник: [class-diagram.drawio](UML/class-diagram.drawio)
 
 ### Диаграмма вариантов использования
-[![Use Case Diagram](UML/use-case-diagram.png)](UML/use-case-diagram.png)  
-Редактируемый исходник: [use-case-diagram.drawio](UML/use-case-diagram.drawio)
+[![Use Case Diagram](UML/use-case.png)](UML/use-case.png)  
+Редактируемый исходник: [use-case.drawio](UML/use-case.drawio)
 
 ## API (Swagger)
 
 API системы описан с использованием стандарта OpenAPI 3.0.
 
 [Swagger UI](https://app.swaggerhub.com/apis/MILAMIHEEVA/LearningWord/1.0.0)
-[OpenAPI спецификация](swagger/Api.yaml)
+
+[OpenAPI спецификация](uchu-slovo.yaml)
 
 ### Основные эндпоинты
 
