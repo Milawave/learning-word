@@ -28,9 +28,8 @@
 
 API системы описан с использованием стандарта OpenAPI 3.0.
 
-[Swagger UI](https://app.swaggerhub.com/apis/MILAMIHEEVA/LearningWord/1.0.0)
-
-[OpenAPI спецификация](uchu-slovo.yaml)
+- [Swagger UI](https://app.swaggerhub.com/apis-docs/MILAMIHEEVA/LearningWord/1.0.0)
+- [OpenAPI спецификация](swagger/uchu-slovo.yaml)
 
 ### Основные эндпоинты
 
