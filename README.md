@@ -62,7 +62,7 @@ API системы описан с использованием стандарт
   - use-case-diagram.png
   - use-case-diagram.drawio
 - Swagger/
-  - api-spec.yaml
+  - uchu-slovo.yaml
 
 ## Примечание
 
