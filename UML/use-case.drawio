@@ -59,9 +59,6 @@
         <mxCell id="Z2wg1_9LykbV9OReUZUt-26" value="Повторить слово" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="280" y="30" width="140" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="Z2wg1_9LykbV9OReUZUt-46" value="Выбрать группу слов (категорию)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="720" y="-420" width="140" height="70" as="geometry" />
-        </mxCell>
         <mxCell id="Z2wg1_9LykbV9OReUZUt-54" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.35;exitY=0.034;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="r_jGdUgmC2tXPDYS81bA-10" target="r_jGdUgmC2tXPDYS81bA-9" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="200" y="20" as="sourcePoint" />
